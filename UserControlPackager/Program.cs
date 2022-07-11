@@ -20,30 +20,31 @@ namespace UserControlPackager
         static String filename = "packageData.txt";
         static Form1 form;
         [STAThread]
-        static void Main(string[] args)
+        static void Main(string[] args) //main of the program
         {
-            if (args.Length != 0)
+            if (args.Length != 0) //allow external files through command line
             {
                 filename = args[0];
             }   
             initLoadFile();   
+            //generated VS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             form = new Form1();
             Application.Run(form);
         }
-        public static void addPackage(Package package)
+        public static void addPackage(Package package) //static reference code to adding a package from anywhere
         {
             packages.Enqueue(package);
-            form.refreshList();
+            form.refreshInterface();
             created++;
             writeFile();
         }
-        public static Package removeTopPackage()
+        public static Package removeTopPackage() //static refernece code to removing a package from anywhere
         {
             if(packages.TryDequeue(out Package removed))
             {
-                form.refreshList();
+                form.refreshInterface();
                 destroyed++;
                 writeFile();
                 return removed;
@@ -54,7 +55,7 @@ namespace UserControlPackager
             }
             
         }
-        static void initLoadFile()
+        static void initLoadFile() //initial load of file, only doing when program opens
         {
             if (File.Exists(filename))
             {
@@ -79,7 +80,7 @@ namespace UserControlPackager
                 packages = new ConcurrentQueue<Package>();
             }
         }
-        public static void writeFile()
+        public static void writeFile() //write output file called after add and remove operations
         {
             try
             {
@@ -101,12 +102,14 @@ namespace UserControlPackager
             
 
         }
-        public static void printQueue()
+        public static void printQueue() //print the queue out.
         {
             Console.WriteLine("Current Length of Queue: " + packages.Count);
+            int n = 0;
             foreach (Package s in packages)
             {
-                Console.WriteLine(s.ToShippingLabelString());
+                Console.WriteLine("Package #" + n);
+                Console.WriteLine(s);
             }
         }
     }

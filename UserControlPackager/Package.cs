@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 namespace UserControlPackager
 {
+    //General Package class used by many parts of the program, supporting JSON serialization and deserialization
     public class Package
     {
         
@@ -33,6 +34,7 @@ namespace UserControlPackager
         String zipCode;
         public Package(String nam, float h, float w, float d, float grams, String strAddr, String buildNum, String cit, String st, String count,String zip)
         {
+            //parameter constructor if not made by JSON
             name = nam;
             height = h;
             width = w;
@@ -47,11 +49,13 @@ namespace UserControlPackager
         }
         public override String ToString()
         {
+            //one line string
             return name + ", " + streetAddress + ", " + city + ", " + state + " " + zipCode + ", " + country + ", Size: " + height + "mm x" + width + "mm x" + depth+"mm"+", Weight: "+weight+"g";
 
         }
         public String ToShippingLabelString()
         {
+            //multiline string
             return name + "\n" + streetAddress + "\n" + city + ", " + state + " " + zipCode + "\n" + country + "\nSize: " + height + "mm x " + width + "mm x " + depth+"mm,\nWeight: "+weight+"g";
         }
     }

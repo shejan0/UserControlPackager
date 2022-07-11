@@ -32,8 +32,6 @@ namespace UserControlPackager
             this.addPackageBtn = new System.Windows.Forms.Button();
             this.statsBtn = new System.Windows.Forms.Button();
             this.listPackageBtn = new System.Windows.Forms.Button();
-            this.addPackageControl1 = new UserControlPackager.addPackageControl();
-            this.listPackageControl1 = new UserControlPackager.listPackageControl();
             this.SuspendLayout();
             // 
             // addPackageBtn
@@ -44,6 +42,7 @@ namespace UserControlPackager
             this.addPackageBtn.TabIndex = 0;
             this.addPackageBtn.Text = "Add a Package";
             this.addPackageBtn.UseVisualStyleBackColor = true;
+            this.addPackageBtn.Click += new System.EventHandler(this.addPackageBtn_Click);
             // 
             // statsBtn
             // 
@@ -53,6 +52,7 @@ namespace UserControlPackager
             this.statsBtn.TabIndex = 1;
             this.statsBtn.Text = "Stats";
             this.statsBtn.UseVisualStyleBackColor = true;
+            this.statsBtn.Click += new System.EventHandler(this.statsBtn_Click);
             // 
             // listPackageBtn
             // 
@@ -62,29 +62,13 @@ namespace UserControlPackager
             this.listPackageBtn.TabIndex = 2;
             this.listPackageBtn.Text = "List Packages";
             this.listPackageBtn.UseVisualStyleBackColor = true;
-            // 
-            // addPackageControl1
-            // 
-            this.addPackageControl1.AutoSize = true;
-            this.addPackageControl1.Location = new System.Drawing.Point(246, 52);
-            this.addPackageControl1.Name = "addPackageControl1";
-            this.addPackageControl1.Size = new System.Drawing.Size(251, 330);
-            this.addPackageControl1.TabIndex = 3;
-            // 
-            // listPackageControl1
-            // 
-            this.listPackageControl1.Location = new System.Drawing.Point(540, 18);
-            this.listPackageControl1.Name = "listPackageControl1";
-            this.listPackageControl1.Size = new System.Drawing.Size(237, 420);
-            this.listPackageControl1.TabIndex = 4;
+            this.listPackageBtn.Click += new System.EventHandler(this.listPackageBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listPackageControl1);
-            this.Controls.Add(this.addPackageControl1);
+            this.ClientSize = new System.Drawing.Size(517, 450);
             this.Controls.Add(this.listPackageBtn);
             this.Controls.Add(this.statsBtn);
             this.Controls.Add(this.addPackageBtn);
@@ -92,7 +76,6 @@ namespace UserControlPackager
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -101,8 +84,6 @@ namespace UserControlPackager
         private System.Windows.Forms.Button addPackageBtn;
         private System.Windows.Forms.Button statsBtn;
         private System.Windows.Forms.Button listPackageBtn;
-        private addPackageControl addPackageControl1;
-        private listPackageControl listPackageControl1;
     }
 }
 

@@ -21,7 +21,11 @@ namespace UserControlPackager
         {
             createdLbl.Text = "Created: " + Program.created;
             destroyedLbl.Text = "Removed: " + Program.destroyed;
-            existsLbl.Text = "Currently exists: " + Program.packages.Count;
+            if (Program.packages != null) //Visual Studio work around
+            {
+                existsLbl.Text = "Currently exists: " + Program.packages.Count;
+            }
+            
         }
     }
 }

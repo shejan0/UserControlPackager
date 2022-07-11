@@ -44,12 +44,12 @@ namespace UserControlPackager
         }
         public override String ToString()
         {
-            return name + ", " + streetAddress + ", " + city + ", " + state + " " + zipCode + ", " + country + ", Size: " + height + "x" + width + "x" + depth;
+            return name + ", " + streetAddress + ", " + city + ", " + state + " " + zipCode + ", " + country + ", Size: " + height + "mm x" + width + "mm x" + depth+"mm";
 
         }
         public String ToShippingLabelString()
         {
-            return name + "\n" + streetAddress + "\n" + city + ", " + state + " " + zipCode + "\n" + country + "\nSize: " + height + "x" + width + "x" + depth;
+            return name + "\n" + streetAddress + "\n" + city + ", " + state + " " + zipCode + "\n" + country + "\nSize: " + height + "mm x " + width + "mm x " + depth+"mm";
         }
     }
 }

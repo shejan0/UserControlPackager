@@ -14,9 +14,11 @@ namespace UserControlPackager
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        
         public static ConcurrentQueue<Package> packages;
         public static int created=0, destroyed=0;
         static String filename = "packageData.txt";
+        static Form1 form;
         [STAThread]
         static void Main(string[] args)
         {
@@ -27,7 +29,30 @@ namespace UserControlPackager
             initLoadFile();   
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            form = new Form1();
+            Application.Run(form);
+        }
+        public static void addPackage(Package package)
+        {
+            packages.Enqueue(package);
+            form.refreshList();
+            created++;
+            writeFile();
+        }
+        public static Package removeTopPackage()
+        {
+            if(packages.TryDequeue(out Package removed))
+            {
+                form.refreshList();
+                destroyed++;
+                writeFile();
+                return removed;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
         static void initLoadFile()
         {

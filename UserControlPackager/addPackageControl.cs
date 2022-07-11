@@ -23,13 +23,7 @@ namespace UserControlPackager
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            //convert to Package object
-            Package package = ToPackage();
-            //add package to the list in Form1
-            Program.packages.Enqueue(package);
-            Program.created++;
-            Program.writeFile();
-            Program.printQueue();
+            Program.addPackage(ToPackage());
         }
     }
 }

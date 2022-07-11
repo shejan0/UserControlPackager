@@ -12,19 +12,9 @@ namespace UserControlPackager
 {
     public partial class listPackageControl : UserControl
     {
-        Timer timer;
         public listPackageControl()
         {
             InitializeComponent();
-            timer = new Timer();
-            timer.Interval = 100;
-            timer.Tick += Timer_Tick;
-            timer.Enabled = true;
-            updateList();
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
             updateList();
         }
 
@@ -52,16 +42,23 @@ namespace UserControlPackager
             //upon Dequeue it will update with timer
             try
             {
-                Package s;
-                Program.packages.TryDequeue(out s);
-                Program.destroyed++;
-                Program.writeFile();
+                Program.removeTopPackage();
             }
             catch(Exception ex)
             {
                 Console.Error.WriteLine(ex);
             }
             
+        }
+
+        private void packageList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(packageList.SelectedItem is Package)
+            {
+                Package package = (Package)packageList.SelectedItem;
+
+                shippingLbl.Lines = package.ToShippingLabelString().Split('\n');
+            }
         }
     }
 }

@@ -41,14 +41,14 @@ namespace UserControlPackager
                     State state = c.GetState();
                     if ((state.Gamepad.Buttons & GamepadButtonFlags.DPadUp) != 0)
                     {
-                        changeUserControl(new statsControl(), new Point(250, 30), new Size(150, 150));
+                        changeToStats();
                     }else if ((state.Gamepad.Buttons & GamepadButtonFlags.DPadLeft) != 0)
                     {
-                        changeUserControl(new addPackageControl(), new Point(250, 30), new Size(251, 330));
+                        changeToAddPackage();
                     }
                     else if ((state.Gamepad.Buttons & GamepadButtonFlags.DPadRight) != 0)
                     {
-                        changeUserControl(new listPackageControl(), new Point(250, 20), new Size(251, 330));
+                        changeToListPackage();
                     }
                     else if ((state.Gamepad.Buttons & GamepadButtonFlags.A) != 0)
                     {
@@ -71,41 +71,54 @@ namespace UserControlPackager
 
         private void Form1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            try
-            {
-                if (e.Modifiers == Keys.Control)
-                {
-                    switch (e.KeyCode)
-                    {
-                        case Keys.V:
-                            Program.addPackage(JsonConvert.DeserializeObject<Package>(Clipboard.GetText()));
-                            break;
-                        case Keys.E:
-                            Program.removeTopPackage();
-                            break;
-                    }
-                }
-                else if(e.Modifiers==Keys.Alt)
-                {
-                    switch (e.KeyCode)
-                    {
-                        case Keys.S:
-                            changeUserControl(new statsControl(), new Point(250, 30), new Size(150, 150));
-                            break;
-                        case Keys.A:
-                            changeUserControl(new addPackageControl(), new Point(250, 30), new Size(251, 330));
-                            break;
-                        case Keys.L:
-                            changeUserControl(new listPackageControl(), new Point(250, 20), new Size(251, 330));
-                            break;
-                    }
-                }
-                
-            }catch(Exception ex)
-            {
-                Console.Error.WriteLine(ex);
-            }
             
+            if (e.Modifiers == Keys.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.V:
+                        try
+                        {
+                            Program.addPackage(JsonConvert.DeserializeObject<Package>(Clipboard.GetText()));
+                            errorLbl.Text = "";
+                        }catch(Exception ex)
+                        {
+                            errorLbl.Text = "Paste failed, check console for error";
+                            Console.Error.WriteLine(ex);
+                        }
+                        break;
+                    case Keys.E:
+                        Program.removeTopPackage();
+                        break;
+                }
+            }
+            else if(e.Modifiers==Keys.Alt)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.S:
+                        changeToStats();
+                        break;
+                    case Keys.A:
+                        changeToAddPackage();
+                        break;
+                    case Keys.L:
+                        changeToListPackage();
+                        break;
+                }
+            }
+        }
+         void changeToStats()
+        {
+            changeUserControl(new statsControl(), new Point(250, 70), new Size(150, 150));
+        }
+         void changeToAddPackage()
+        {
+            changeUserControl(new addPackageControl(), new Point(250, 70), new Size(251, 330));
+        }
+         void changeToListPackage()
+        {
+            changeUserControl(new listPackageControl(), new Point(250, 70), new Size(251, 330));
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -131,17 +144,17 @@ namespace UserControlPackager
         }
         private void addPackageBtn_Click(object sender, EventArgs e)
         {
-            changeUserControl(new addPackageControl(), new Point(250, 30), new Size(251, 330));
+            changeToAddPackage();
         }
 
         private void statsBtn_Click(object sender, EventArgs e)
         {
-            changeUserControl(new statsControl(), new Point(250, 30), new Size(150, 150));
+            changeToStats();
         }
 
         private void listPackageBtn_Click(object sender, EventArgs e)
         {
-            changeUserControl(new listPackageControl(), new Point(250, 20), new Size(251, 330));
+            changeToListPackage();
         }
     }
 }

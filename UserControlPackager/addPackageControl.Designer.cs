@@ -50,6 +50,9 @@ namespace UserControlPackager
             this.widthLbl = new System.Windows.Forms.Label();
             this.depthBox = new System.Windows.Forms.TextBox();
             this.depthLbl = new System.Windows.Forms.Label();
+            this.weightBox = new System.Windows.Forms.TextBox();
+            this.weightLbl = new System.Windows.Forms.Label();
+            this.mmLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameLbl
@@ -169,25 +172,25 @@ namespace UserControlPackager
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(12, 288);
+            this.addBtn.Location = new System.Drawing.Point(21, 336);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(225, 39);
-            this.addBtn.TabIndex = 11;
+            this.addBtn.TabIndex = 12;
             this.addBtn.Text = "Add Package";
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // heightBox
             // 
-            this.heightBox.Location = new System.Drawing.Point(42, 260);
+            this.heightBox.Location = new System.Drawing.Point(41, 288);
             this.heightBox.Name = "heightBox";
             this.heightBox.Size = new System.Drawing.Size(46, 22);
-            this.heightBox.TabIndex = 8;
+            this.heightBox.TabIndex = 9;
             // 
             // heightLbl
             // 
             this.heightLbl.AutoSize = true;
-            this.heightLbl.Location = new System.Drawing.Point(18, 263);
+            this.heightLbl.Location = new System.Drawing.Point(17, 291);
             this.heightLbl.Name = "heightLbl";
             this.heightLbl.Size = new System.Drawing.Size(18, 17);
             this.heightLbl.TabIndex = 15;
@@ -195,15 +198,15 @@ namespace UserControlPackager
             // 
             // widthBox
             // 
-            this.widthBox.Location = new System.Drawing.Point(115, 260);
+            this.widthBox.Location = new System.Drawing.Point(114, 288);
             this.widthBox.Name = "widthBox";
             this.widthBox.Size = new System.Drawing.Size(46, 22);
-            this.widthBox.TabIndex = 9;
+            this.widthBox.TabIndex = 10;
             // 
             // widthLbl
             // 
             this.widthLbl.AutoSize = true;
-            this.widthLbl.Location = new System.Drawing.Point(91, 263);
+            this.widthLbl.Location = new System.Drawing.Point(90, 291);
             this.widthLbl.Name = "widthLbl";
             this.widthLbl.Size = new System.Drawing.Size(21, 17);
             this.widthLbl.TabIndex = 17;
@@ -211,25 +214,53 @@ namespace UserControlPackager
             // 
             // depthBox
             // 
-            this.depthBox.Location = new System.Drawing.Point(191, 260);
+            this.depthBox.Location = new System.Drawing.Point(190, 288);
             this.depthBox.Name = "depthBox";
             this.depthBox.Size = new System.Drawing.Size(46, 22);
-            this.depthBox.TabIndex = 10;
+            this.depthBox.TabIndex = 11;
             // 
             // depthLbl
             // 
             this.depthLbl.AutoSize = true;
-            this.depthLbl.Location = new System.Drawing.Point(167, 263);
+            this.depthLbl.Location = new System.Drawing.Point(166, 291);
             this.depthLbl.Name = "depthLbl";
             this.depthLbl.Size = new System.Drawing.Size(18, 17);
             this.depthLbl.TabIndex = 19;
             this.depthLbl.Text = "D";
+            // 
+            // weightBox
+            // 
+            this.weightBox.Location = new System.Drawing.Point(94, 260);
+            this.weightBox.Name = "weightBox";
+            this.weightBox.Size = new System.Drawing.Size(152, 22);
+            this.weightBox.TabIndex = 8;
+            // 
+            // weightLbl
+            // 
+            this.weightLbl.AutoSize = true;
+            this.weightLbl.Location = new System.Drawing.Point(18, 263);
+            this.weightLbl.Name = "weightLbl";
+            this.weightLbl.Size = new System.Drawing.Size(74, 17);
+            this.weightLbl.TabIndex = 21;
+            this.weightLbl.Text = "Weight (g)";
+            // 
+            // mmLbl
+            // 
+            this.mmLbl.AutoSize = true;
+            this.mmLbl.Location = new System.Drawing.Point(18, 313);
+            this.mmLbl.Name = "mmLbl";
+            this.mmLbl.Size = new System.Drawing.Size(45, 17);
+            this.mmLbl.TabIndex = 22;
+            this.mmLbl.Text = "in mm";
             // 
             // addPackageControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.mmLbl);
+            this.Controls.Add(this.weightBox);
+            this.Controls.Add(this.weightLbl);
             this.Controls.Add(this.depthBox);
             this.Controls.Add(this.depthLbl);
             this.Controls.Add(this.widthBox);
@@ -252,7 +283,7 @@ namespace UserControlPackager
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.nameLbl);
             this.Name = "addPackageControl";
-            this.Size = new System.Drawing.Size(265, 336);
+            this.Size = new System.Drawing.Size(265, 378);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,5 +312,8 @@ namespace UserControlPackager
         private System.Windows.Forms.Label widthLbl;
         private System.Windows.Forms.TextBox depthBox;
         private System.Windows.Forms.Label depthLbl;
+        private System.Windows.Forms.TextBox weightBox;
+        private System.Windows.Forms.Label weightLbl;
+        private System.Windows.Forms.Label mmLbl;
     }
 }

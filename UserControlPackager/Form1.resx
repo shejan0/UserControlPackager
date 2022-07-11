@@ -117,4 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="instructionsLbl.Text" xml:space="preserve">
+    <value>Use ALT+A, ALT+S, ALT+L, Xbox Dpad, or buttons to move through User Controls
+Use CTRL+V or Xbox A to quick paste a package from JSON in clipboard
+Use CTRL+E, or Xbox B to quick remove a package from the top of package list</value>
+  </data>
 </root>

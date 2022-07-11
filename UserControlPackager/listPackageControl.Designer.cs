@@ -40,13 +40,13 @@ namespace UserControlPackager
             this.packageList.ItemHeight = 16;
             this.packageList.Location = new System.Drawing.Point(19, 18);
             this.packageList.Name = "packageList";
-            this.packageList.Size = new System.Drawing.Size(198, 228);
+            this.packageList.Size = new System.Drawing.Size(198, 164);
             this.packageList.TabIndex = 0;
             this.packageList.SelectedIndexChanged += new System.EventHandler(this.packageList_SelectedIndexChanged);
             // 
             // removeBtn
             // 
-            this.removeBtn.Location = new System.Drawing.Point(19, 364);
+            this.removeBtn.Location = new System.Drawing.Point(19, 300);
             this.removeBtn.Name = "removeBtn";
             this.removeBtn.Size = new System.Drawing.Size(198, 53);
             this.removeBtn.TabIndex = 1;
@@ -56,7 +56,7 @@ namespace UserControlPackager
             // 
             // shippingLbl
             // 
-            this.shippingLbl.Location = new System.Drawing.Point(19, 252);
+            this.shippingLbl.Location = new System.Drawing.Point(19, 188);
             this.shippingLbl.Multiline = true;
             this.shippingLbl.Name = "shippingLbl";
             this.shippingLbl.Size = new System.Drawing.Size(198, 106);
@@ -70,7 +70,7 @@ namespace UserControlPackager
             this.Controls.Add(this.removeBtn);
             this.Controls.Add(this.packageList);
             this.Name = "listPackageControl";
-            this.Size = new System.Drawing.Size(237, 420);
+            this.Size = new System.Drawing.Size(237, 362);
             this.Load += new System.EventHandler(this.listPackageControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

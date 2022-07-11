@@ -17,6 +17,8 @@ namespace UserControlPackager
         float width;
         [JsonProperty("depth")]
         float depth;
+        [JsonProperty("weight")]
+        float weight;
         [JsonProperty("streetAddress")]
         String streetAddress;
         [JsonProperty("buildingNum")]
@@ -29,12 +31,13 @@ namespace UserControlPackager
         String country;
         [JsonProperty("zipCode")]
         String zipCode;
-        public Package(String nam, float h, float w, float d, String strAddr, String buildNum, String cit, String st, String count,String zip)
+        public Package(String nam, float h, float w, float d, float grams, String strAddr, String buildNum, String cit, String st, String count,String zip)
         {
             name = nam;
             height = h;
             width = w;
             depth = d;
+            weight = grams;
             streetAddress = strAddr;
             buildingNum = buildNum;
             city = cit;
@@ -44,12 +47,12 @@ namespace UserControlPackager
         }
         public override String ToString()
         {
-            return name + ", " + streetAddress + ", " + city + ", " + state + " " + zipCode + ", " + country + ", Size: " + height + "mm x" + width + "mm x" + depth+"mm";
+            return name + ", " + streetAddress + ", " + city + ", " + state + " " + zipCode + ", " + country + ", Size: " + height + "mm x" + width + "mm x" + depth+"mm"+", Weight: "+weight+"g";
 
         }
         public String ToShippingLabelString()
         {
-            return name + "\n" + streetAddress + "\n" + city + ", " + state + " " + zipCode + "\n" + country + "\nSize: " + height + "mm x " + width + "mm x " + depth+"mm";
+            return name + "\n" + streetAddress + "\n" + city + ", " + state + " " + zipCode + "\n" + country + "\nSize: " + height + "mm x " + width + "mm x " + depth+"mm,\nWeight: "+weight+"g";
         }
     }
 }

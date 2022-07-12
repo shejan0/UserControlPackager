@@ -21,7 +21,7 @@ namespace UserControlPackager
         {
             InitializeComponent();
             timer = new Timer();
-            timer.Interval = 10; //set to 10ms, faster can cause driver overhead
+            timer.Interval = 100; //set to 10ms, faster can cause driver overhead
             timer.Tick += Timer_Tick;
             timer.Enabled = true;
         }
@@ -66,6 +66,7 @@ namespace UserControlPackager
                             Program.addPackage(JsonConvert.DeserializeObject<Package>(Clipboard.GetText()));
                         }catch(Exception ex)
                         {
+                            errorLbl.Text = "Paste failed, check console for error";
                             Console.Error.WriteLine(ex);
                         }
                         
